@@ -1,0 +1,20 @@
+---
+- name: Remove Whoami project
+  community.docker.docker_compose:
+    project_src: roles/whoami/files
+    state: absent
+
+- name: Start Whoami project with Docker Compose definition
+  community.docker.docker_compose:
+    project_src: roles/whoami/files
+    project_name: whoami
+  register: output
+
+- name: Show results
+  ansible.builtin.debug:
+    var: output
+
+- name: Verify that the Whoami server is running
+  ansible.builtin.assert:
+    that:
+      - "output.services.whoami.whoami.state.running"

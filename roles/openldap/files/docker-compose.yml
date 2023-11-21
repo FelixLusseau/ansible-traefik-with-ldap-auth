@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  openldap:
+    image: bitnami/openldap:2
+    container_name: openldap
+    ports:
+      - '1389:1389'
+      - '1636:1636'
+    environment:
+      - LDAP_ADMIN_USERNAME=admin
+      - LDAP_ADMIN_PASSWORD=Azer123!
+      - LDAP_ROOT=dc=ansible,dc=fr
+      # - LDAP_USER_DC=People
+      # - LDAP_GROUP=Group
+    networks:
+      - int-net
+    volumes:
+      - /tmp/openldap_data:/bitnami/openldap # Pour la persistance des données
+
+networks:
+  int-net: 

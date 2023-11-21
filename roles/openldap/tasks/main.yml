@@ -1,0 +1,56 @@
+---
+- name: Create the openldap_data directory
+  ansible.builtin.file:
+    path: "roles/openldap/files/"
+    state: directory
+    mode: '0755'
+  delegate_to: localhost
+  run_once: true
+  tags: openldap
+
+- name: Template the docker-compose.yml file
+  ansible.builtin.template:
+    src: docker-compose.j2.yml
+    dest: roles/openldap/files/docker-compose.yml
+  delegate_to: localhost
+  run_once: true
+  tags: template
+
+- name: Create the openldap_data directory
+  ansible.builtin.file:
+    path: "{{ openldap_home }}"
+    state: directory
+    mode: '0777'
+  delegate_to: localhost
+  run_once: true
+  tags: openldap
+
+- name: Remove OpenLDAP project
+  community.docker.docker_compose:
+    project_src: roles/openldap/files
+    state: absent
+
+- name: Start OpenLDAP project with Docker Compose definition
+  community.docker.docker_compose:
+    project_src: roles/openldap/files
+    project_name: openldap
+  register: output
+
+- name: Show results
+  ansible.builtin.debug:
+    var: output
+
+- name: Verify that the OpenLDAP server is running
+  ansible.builtin.assert:
+    that:
+      - "output.services.openldap.openldap.state.running"
+
+# - name: Wait for OpenLDAP to be ready
+#   wait_for:
+#     host: localhost
+#     port: 1389
+#     delay: 5
+#     timeout: 60
+
+# - name: Import LDIF file into OpenLDAP
+#   shell: ldapadd -H ldap://localhost:1389 -D "cn={{openldap_admin_username}},dc=ansible,dc=fr" -x -w {{openldap_admin_password}} -f roles/openldap/files/ldap.ldif

@@ -1,0 +1,20 @@
+---
+- name: Remove Traefik project
+  community.docker.docker_compose:
+    project_src: roles/traefik/files
+    state: absent
+
+- name: Start Traefik project with Docker Compose definition
+  community.docker.docker_compose:
+    project_src: roles/traefik/files
+    project_name: traefik
+  register: output
+
+- name: Show results
+  ansible.builtin.debug:
+    var: output
+
+- name: Verify that the Traefik server is running
+  ansible.builtin.assert:
+    that:
+      - "output.services.traefik.traefik.state.running"

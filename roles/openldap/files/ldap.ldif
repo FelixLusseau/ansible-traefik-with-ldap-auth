@@ -1,0 +1,204 @@
+
+dn: cn=jsmith,ou=Group,dc=ansible,dc=fr
+cn: jsmith
+objectClass: posixGroup
+objectClass: top
+gidNumber: 1000
+
+dn: ou=eng,ou=Group,dc=ansible,dc=fr
+objectClass: organizationalUnit
+objectClass: top
+ou: eng
+
+dn: cn=sparker,ou=Group,dc=ansible,dc=fr
+cn: sparker
+objectClass: posixGroup
+objectClass: top
+gidNumber: 1001
+
+dn: cn=bjensen,ou=Group,dc=ansible,dc=fr
+cn: bjensen
+objectClass: posixGroup
+objectClass: top
+gidNumber: 1002
+
+dn: cn=smcadam,ou=Group,dc=ansible,dc=fr
+cn: smcadam
+objectClass: posixGroup
+objectClass: top
+gidNumber: 1003
+
+dn: cn=pposit,ou=Group,dc=ansible,dc=fr
+cn: pposit
+objectClass: posixGroup
+objectClass: top
+gidNumber: 1004
+
+dn: ou=sales,ou=Group,dc=ansible,dc=fr
+objectClass: organizationalUnit
+objectClass: top
+ou: sales
+
+dn: cn=npaloma,ou=Group,dc=ansible,dc=fr
+cn: npaloma
+objectClass: posixGroup
+objectClass: top
+gidNumber: 1005
+
+dn: cn=blee,ou=Group,dc=ansible,dc=fr
+cn: blee
+objectClass: posixGroup
+objectClass: top
+gidNumber: 1006
+
+dn: cn=dndiaye,ou=Group,dc=ansible,dc=fr
+cn: dndiaye
+objectClass: posixGroup
+objectClass: top
+gidNumber: 1007
+
+
+dn: uid=jsmith,ou=People,dc=ansible,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: John Smith
+sn: Smith
+uid: jsmith
+userPassword: {SSHA}HdF12YNusPf4ufFDic5bWgU9yuTuN7Rr
+userPassword: lclcpn416jpoji
+mail: jsmith@mail.ansible.fr
+loginShell: /bin/bash
+uidNumber: 1000
+gidNumber: 1000
+homeDirectory: /home/jsmith
+
+dn: uid=sparker,ou=People,dc=ansible,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Steven Parker
+sn: Parker
+uid: sparker
+userPassword: {SSHA}eiKg8R9J2MbGLCIfFH3BDSp2+BsV1vy5
+userPassword: kahczhj51vcbez
+mail: sparker@mail.ansible.fr
+loginShell: /bin/bash
+uidNumber: 1001
+gidNumber: 1001
+homeDirectory: /home/sparker
+
+dn: uid=bjensen,ou=People,dc=ansible,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Barbara Jensen
+sn: Jensen
+uid: bjensen
+userPassword: {SSHA}np/jkleudsg/R8xKrrXHHde6vU7iuvxm
+userPassword: a4xwcez7vijm
+mail: bjensen@mail.ansible.fr
+loginShell: /bin/bash
+uidNumber: 1002
+gidNumber: 1002
+homeDirectory: /home/bjensen
+
+dn: uid=smcadam,ou=People,dc=ansible,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Scott McAdam
+sn: McAdam
+uid: smcadam
+userPassword: {SSHA}4M5wjkjtkIi2czMJtCOWMmuropvfi2eE
+userPassword: ur6ooh3pv5yt
+mail: smcadam@mail.ansible.fr
+loginShell: /bin/bash
+uidNumber: 1003
+gidNumber: 1003
+homeDirectory: /home/smcadam
+
+dn: uid=pposit,ou=People,dc=ansible,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Paul Position
+sn: Position
+uid: pposit
+userPassword: {SSHA}2cS2hgsFEuJGBJD3/A5md0AQgxyIydws
+userPassword: nbzrfg76wjoij1
+mail: pposit@mail.ansible.fr
+loginShell: /bin/bash
+uidNumber: 1004
+gidNumber: 1004
+homeDirectory: /home/pposit
+
+dn: uid=npaloma,ou=People,dc=ansible,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Niña Paloma
+sn: Paloma
+uid: npaloma
+userPassword: {SSHA}KlPFC5z6n1V2cQguz+bFMII+S+UQzcCb
+userPassword: doihv6icpk7poj
+mail: npaloma@mail.ansible.fr
+loginShell: /bin/bash
+uidNumber: 1005
+gidNumber: 1005
+homeDirectory: /home/npaloma
+
+dn: uid=blee,ou=People,dc=ansible,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: 白 李
+sn: 李
+uid: blee
+userPassword: {SSHA}HEejXjJtHDniJkTabHvRIRFu2m2ABrPq
+userPassword: yzaduezyoi52p9
+mail: blee@mail.ansible.fr
+loginShell: /bin/bash
+uidNumber: 1006
+gidNumber: 1006
+homeDirectory: /home/blee
+
+dn: uid=dndiaye,ou=People,dc=ansible,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Diabou Ndiaye
+sn: Ndiaye
+uid: dndiaye
+userPassword: {SSHA}YGPxpJOmid/bSNAOo9xzWLRS0UE0Ku8n
+userPassword: wdsfrd76pojfd
+mail: dndiaye@mail.ansible.fr
+loginShell: /bin/bash
+uidNumber: 1007
+gidNumber: 1007
+homeDirectory: /home/dndiaye
+

@@ -1,9 +1,13 @@
-- name: Playbook
-  hosts: localhost
+- name: LDAP and Traefik
+  hosts: test
   # tasks:
   #   - name: Ping
   #     ansible.builtin.ping:
   roles:
     - openldap
     - traefik
+
+- name: Web
+  hosts: all
+  roles:
     - whoami

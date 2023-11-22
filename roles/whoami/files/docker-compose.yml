@@ -9,8 +9,32 @@ services:
       - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
       - "traefik.http.routers.whoami.entrypoints=web"
     networks:
-      - openldap_int-net
+      - traefik_web-net
+
+  apache:
+    image: "httpd"
+    container_name: "apache"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.apache.rule=(Host(`mon-site.localhost`) && PathPrefix(`/front`))"
+      - "traefik.http.middlewares.apache.stripprefix.prefixes=/front"
+      - "traefik.http.routers.apache.middlewares=apache@docker"
+      - "traefik.http.routers.apache.entrypoints=web"
+    networks:
+      - traefik_web-net
+
+  nginx:
+    image: "nginx"
+    container_name: "nginx"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.rule=(Host(`mon-site.localhost`) && PathPrefix(`/api`))"
+      - "traefik.http.middlewares.nginx.stripprefix.prefixes=/api"
+      - "traefik.http.routers.nginx.middlewares=nginx@docker"
+      - "traefik.http.routers.nginx.entrypoints=web"
+    networks:
+      - traefik_web-net
 
 networks:
-  openldap_int-net:
+  traefik_web-net:
     external: true

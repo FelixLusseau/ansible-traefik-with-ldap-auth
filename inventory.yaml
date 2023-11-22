@@ -1,2 +1,8 @@
 [test]
 localhost ansible_connection=local
+
+[test2]
+localhost ansible_connection=local
+
+[test3]
+localhost ansible_connection=local

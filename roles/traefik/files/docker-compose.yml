@@ -11,6 +11,8 @@ services:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
+      - "--experimental.plugins.ldapAuth.modulename=github.com/wiltonsr/ldapAuth"
+      - "--experimental.plugins.ldapAuth.version=v0.1.4"
     ports:
       - "80:80"
       - "8080:8080"

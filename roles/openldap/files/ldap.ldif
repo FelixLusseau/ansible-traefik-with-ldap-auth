@@ -1,3 +1,10 @@
+dn: ou=Group,dc=ansible,dc=fr
+objectClass: organizationalUnit
+ou: Group
+
+dn: ou=People,dc=ansible,dc=fr
+objectClass: organizationalUnit
+ou: People
 
 dn: cn=jsmith,ou=Group,dc=ansible,dc=fr
 cn: jsmith

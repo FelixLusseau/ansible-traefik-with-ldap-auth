@@ -24,6 +24,7 @@
   delegate_to: localhost
   run_once: true
   tags: openldap
+  register: openldap_data
 
 - name: Remove OpenLDAP project
   community.docker.docker_compose:
@@ -45,12 +46,13 @@
     that:
       - "output.services.openldap.openldap.state.running"
 
-# - name: Wait for OpenLDAP to be ready
-#   wait_for:
-#     host: localhost
-#     port: 1389
-#     delay: 5
-#     timeout: 60
+- name: Wait for OpenLDAP to be ready
+  wait_for:
+    host: localhost
+    port: 1389
+    delay: 5
+    timeout: 60
 
-# - name: Import LDIF file into OpenLDAP
-#   shell: ldapadd -H ldap://localhost:1389 -D "cn={{openldap_admin_username}},dc=ansible,dc=fr" -x -w {{openldap_admin_password}} -f roles/openldap/files/ldap.ldif
+- name: Import LDIF file into OpenLDAP
+  shell: ldapadd -H ldap://localhost:1389 -D "cn={{openldap_admin_username}},dc=ansible,dc=fr" -x -w {{openldap_admin_password}} -f roles/openldap/files/ldap.ldif
+  when: openldap_data.changed
